@@ -20,8 +20,8 @@ If the user so chooses to generate another password, they can click the Generate
 
 GitHub 
 
-
+https://github.com/richielollis/password-generator
 
 Deployed Website 
 
-
+https://richielollis.github.io/password-generator/

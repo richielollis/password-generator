@@ -13,6 +13,7 @@ function writePassword() {
   optionsArray = [];
   passwordArray = [];
 
+  userPromptLength();
   userPrompts();
   generatePassword();
   
@@ -28,14 +29,16 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 //User Prompts
-const userPrompts = () => {
+const userPromptLength = () => {
   userOptions.length = prompt('How long would you like your password to be? Must be between 8 and 128 characaters.');
 
   if (isNaN(userOptions.length) || !userOptions.length || userOptions.length < 8 || userOptions.length > 128) {
-    alert('Must input a number between 8 and 128')
-    userPrompts();
+    alert('Must input a number between 8 and 128.')
+    userPromptLength();
   };
+};
 
+const userPrompts = () => {
   userOptions.uppercase = confirm('Would you like your password to include uppercase letters?');
   userOptions.lowercase = confirm('Would you like your password to include lowercase letters?');
   userOptions.numeric = confirm('Would you like your password to include any numbers?');

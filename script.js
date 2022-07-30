@@ -1,4 +1,5 @@
 // Assignment code here
+// Global variables 
 let userOptions = {};
 let optionsArray = [];
 let passwordArray = [];
@@ -21,8 +22,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   
   passwordText.value = password;
-
-  
 }
 
 // Add event listener to generate button
@@ -44,8 +43,6 @@ const userPrompts = () => {
   userOptions.numeric = confirm('Would you like your password to include any numbers?');
   userOptions.specialCharacter = confirm('Would you like your password to include special characters?');
 
-  console.log(userOptions)
-
   if (!userOptions.uppercase && !userOptions.lowercase && !userOptions.numeric && !userOptions.specialCharacter) {
     alert('At least one character type muct be chosen.')
     userPrompts();
@@ -62,7 +59,6 @@ const numericArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 const specialCharacterArray = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', "/", "]", '^', '_', '`', '{', '|', '}', '~'];
 
 //Generate Password
-
 const generatePassword = () => {
   if (userOptions.uppercase) {
     for (let i = 0; i < uppercaseArray.length; i++) {
@@ -88,42 +84,37 @@ const generatePassword = () => {
     }
   };
 
-  console.log(optionsArray)
-
   for (let y = 0; y < userOptions.length; y++) {
     passwordArray.push(optionsArray[Math.floor(Math.random()*optionsArray.length)]);
   };
-
-  console.log(passwordArray)
   
   if (userOptions.uppercase) {
-    const validateUppercase = console.log(passwordArray.some(r=> uppercaseArray.indexOf(r) >= 0))
+    const validateUppercase = passwordArray.some(r=> uppercaseArray.indexOf(r) >= 0)
     if (validateUppercase === false) {
       generatePassword()
     }
   };
 
   if (userOptions.lowercase) {
-    const validateLowercase = console.log(passwordArray.some(r=> lowercaseArray.indexOf(r) >= 0))
+    const validateLowercase = passwordArray.some(r=> lowercaseArray.indexOf(r) >= 0)
     if (validateLowercase === false) {
       generatePassword()
     }
   };
 
   if (userOptions.numeric) {
-    const validateNumeric = console.log(passwordArray.some(r=> numericArray.indexOf(r) >= 0))
+    const validateNumeric = passwordArray.some(r=> numericArray.indexOf(r) >= 0)
     if (validateNumeric === false) {
       generatePassword()
     }
   };
 
   if (userOptions.specialCharacter) {
-    const validateSpecialCharacter = console.log(passwordArray.some(r=> specialCharacterArray.indexOf(r) >= 0))
+    const validateSpecialCharacter = passwordArray.some(r=> specialCharacterArray.indexOf(r) >= 0)
     if (validateSpecialCharacter === false) {
       generatePassword()
     }
   };
-
 };
 
 
